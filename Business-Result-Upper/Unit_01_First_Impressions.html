@@ -66,6 +66,18 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .passage-body{font-size:1.06rem;line-height:1.85;margin-top:10px;}
 .passage-body p{margin-bottom:10px;}
 .passage-body b{color:#7A2A5A;}
+.pm-word{cursor:pointer;border-bottom:2px dashed #7B2FBE;color:#7B2FBE;font-weight:700;padding:0 1px;border-radius:3px;}
+.pm-word:hover{background:#F5F0FF;}
+.pm-word.pm-sel{background:#1A4A8C;color:#fff;border-bottom-color:#1A4A8C;}
+.pm-word.pm-matched{background:#EAF1FB;color:#1A5080;border-bottom-style:solid;border-bottom-color:#1A5080;}
+.pm-word.pm-correct{background:#EEF7F0;color:#1A5C2A;border-bottom-color:#1A7A4A;border-bottom-style:solid;}
+.pm-word.pm-wrong{background:#FCEEED;color:#C4614A;border-bottom-color:#C4614A;border-bottom-style:solid;}
+.pm-def-row{background:#F4F8FA;border-radius:10px;padding:9px 12px;font-size:1.05rem;color:#1C2B3A;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.pm-blank{display:inline-block;min-width:90px;min-height:1.6em;text-align:center;border:2px dashed #8BB0D0;border-radius:8px;padding:4px 8px;font-weight:700;color:#1A5080;cursor:pointer;background:#EEF5FA;transition:all .15s;}
+.pm-blank:hover{border-color:#1A5080;background:#E2EEFA;}
+.pm-blank.pm-filled{border-style:solid;}
+.pm-blank.pm-correct{background:#EEF7F0;border-color:#1A7A4A;color:#1A5C2A;}
+.pm-blank.pm-wrong{background:#FCEEED;border-color:#C4614A;color:#C4614A;}
 .speak-card{background:#F0EEF8;border-radius:14px;padding:16px 18px;border-left:4px solid #5A2A8C;margin-bottom:14px;}
 .speak-card .speak-num{font-weight:800;color:#4A1A7A;margin-bottom:6px;font-size:1.05rem;}
 .speak-card .speak-q{font-size:1.1rem;color:#1C2B3A;line-height:1.55;}
@@ -170,7 +182,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>First Impressions</h2>
-      <p class="inst-light">Look at the picture below, then talk about the questions with your teacher.</p>
+      <p class="inst-light">Look at the picture below, then read and think about the questions.</p>
       <img src="images/u1_cover_photo.jpg" alt="City of Arts and Sciences at night" style="width:100%;border-radius:12px;margin-bottom:16px;">
       <div class="speak-card">
         <div class="speak-num">1</div>
@@ -190,7 +202,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Talking About First Impressions</h2>
-      <p class="inst-light">Read the text, then discuss the questions with your teacher.</p>
+      <p class="inst-light">Read the text, then think about the questions and share your opinion.</p>
       <div class="passage-card">
         <div class="passage-kicker">Background</div>
         <div class="passage-title">Impressions</div>
@@ -218,14 +230,14 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Match the Words to the Definitions</h2>
-      <p class="instruction">Click a word, then click its matching definition.</p>
-      <div class="two-col">
-        <div class="col-section" id="s3-q"></div>
+      <p class="instruction">Click a word in the text, then click the blank next to its definition.</p>
+      <div style="display:grid;grid-template-columns:1fr 1.25fr;gap:20px;align-items:start;">
+        <div class="passage-card" id="s3-passage" style="max-height:440px;overflow-y:auto;line-height:1.9;font-size:1.06rem;"></div>
         <div class="col-section" id="s3-a"></div>
       </div>
       <div class="hw-btns">
-        <button class="btn-check" onclick="qamCheck('s3')">✓ Check</button>
-        <button class="btn-reset" onclick="qamReset('s3')">↺ Reset</button>
+        <button class="btn-check" onclick="pmCheck('s3')">✓ Check</button>
+        <button class="btn-reset" onclick="pmReset('s3')">↺ Reset</button>
       </div>
       <div id="s3-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
     </div>
@@ -508,7 +520,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Making Business Connections</h2>
-      <p class="inst-light">Read the background text, then discuss the questions with your teacher.</p>
+      <p class="inst-light">Read the background text, then think about the questions and share your opinion.</p>
       <div class="passage-card">
         <div class="passage-kicker">Background</div>
         <div class="passage-title">Business Networking with BNI</div>
@@ -537,38 +549,21 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
     <div class="content">
       <h2>Social Networking Sites</h2>
       <p class="inst-light">Read the text quickly, then choose the best subtitle for the article.</p>
-      <div class="passage-card">
-        <div class="passage-kicker">Reading File</div>
-        <div class="passage-title">Social networking sites</div>
-        <div class="passage-body" style="max-height:230px;overflow-y:auto;padding-right:6px;">
-          <p>Can social networking sites become useful business tools? Until recently that would have seemed unlikely. Sites such as Bebo and Facebook have been regarded as play things, aimed mainly at students and young people. In fact many workplaces have <b>banned</b> their use, with bosses complaining that employees are wasting valuable time chatting with friends rather than working. But possibly things are about to change.</p>
-          <p>Businesses are beginning to see these networking sites as valuable <b>collaboration</b> tools, and the sites themselves are going to have more applications that are specifically aimed at the business user. Already there are sites such as LinkedIn and Ryze that are specifically for the business user.</p>
-          <p>These sites claim they can help businesses to make valuable business contacts, find high-quality candidates and discover inside connections to help them close deals. Kristof Olsen of Computers Today points out that another benefit of networking sites for business is that they allow you to get a feeling about how the market sees your organization. They can help you <b>engage</b> directly with your customers and attract traffic to your web presence.</p>
-          <p>So how can companies make the most of networking sites? Industry expert Christine O'Donnell says that those business people who want to <b>utilize</b> the growth of networking sites for their businesses have to follow four simple rules.</p>
-          <p>The first is that you shouldn't mix business with pleasure. "Have discrete pages for your business and leisure personas," advises Christine. Potential clients do not want or need to see photos of your colleagues at the office party — this type of thing would look unprofessional and distract from the business image you are trying to create. First impressions count as much in the <b>virtual</b> world as in the real world.</p>
-          <p>Secondly, have a small but lively networking profile. Christine advises businesses to regularly update their pages but not to over-fill them with irrelevant information. "The real purpose of networking sites for businesses is to <b>capture attention</b> and direct people back to your own websites. Use the networking sites to keep your customers informed of new developments and engage them in conversation."</p>
-          <p>Thirdly, to make sure you are reaching the right audience you have to be <b>proactive</b>. It is no good sitting back and hoping that customers will find you. Start or join networks that are relevant to your business.</p>
-          <p>The fourth rule is not to be too pushy. As in any walk of life, someone who is too persistent can end up <b>alienating</b> customers and damaging their own reputations.</p>
-          <p>Possibly the most important piece of advice offered by both Christine and Kristof is to act now. Other people are already using social networking to develop a competitive advantage over you.</p>
-        </div>
-      </div>
-      <div class="mc-question" style="margin-top:16px;">
+      <div class="mc-question">
         <div class="mc-q-text">Which is the best subtitle for the article?</div>
         <div class="mc-opts" id="s17-opts"></div>
       </div>
-      <div id="s17-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
-      <div style="margin-top:14px;">
-        <p class="instruction">Match each word from the text to its definition.</p>
-        <div class="two-col">
-          <div class="col-section" id="s17-q"></div>
-          <div class="col-section" id="s17-a"></div>
-        </div>
-        <div class="hw-btns">
-          <button class="btn-check" onclick="qamCheck('s17')">✓ Check</button>
-          <button class="btn-reset" onclick="qamReset('s17')">↺ Reset</button>
-        </div>
-        <div id="s17vocab-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
+      <div id="s17-result" style="margin-top:10px;margin-bottom:14px;font-weight:700;font-size:1.05rem;"></div>
+      <p class="instruction">Click a word in the text, then click the blank next to its definition.</p>
+      <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:20px;align-items:start;">
+        <div class="passage-card" id="s17-passage" style="max-height:420px;overflow-y:auto;padding-right:10px;line-height:1.85;font-size:1.06rem;"></div>
+        <div class="col-section" id="s17-a"></div>
       </div>
+      <div class="hw-btns">
+        <button class="btn-check" onclick="pmCheck('s17')">✓ Check</button>
+        <button class="btn-reset" onclick="pmReset('s17')">↺ Reset</button>
+      </div>
+      <div id="s17vocab-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
     </div>
   </div>
 </div>
@@ -579,7 +574,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Task: Make a Connection</h2>
-      <p class="inst-light">You are going to attend a networking meeting. Work through the steps below with your teacher.</p>
+      <p class="inst-light">You are going to attend a networking meeting. Work through the steps below.</p>
       <div class="task-step"><b>Step 1 — Prepare.</b> Think of your own company (or one you know well). Prepare a 60-second speech: give some general facts about the company, speak briefly about current activities, and say what you hope to gain from networking.</div>
       <div class="task-step"><b>Step 2 — Speak.</b> Give your 60-second speech to your teacher.</div>
       <div class="task-step"><b>Step 3 — Follow up.</b> It's a week after the meeting. Your teacher will play the business contact you met. Call them and arrange to meet — use the Key Expressions from earlier in the unit.</div>
@@ -737,7 +732,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
       </div>
       <div class="speak-card" style="margin-top:16px;">
         <div class="speak-num">2</div>
-        <div class="speak-q">Which piece of advice from the text would be most useful for your own work? Why? Be ready to discuss this with your teacher next lesson.</div>
+        <div class="speak-q">Which piece of advice from the text would be most useful for your own work? Why? Be ready to share your opinion next lesson.</div>
       </div>
     </div>
   </div>
@@ -927,6 +922,14 @@ function downloadNotes(){
   if(win){ win.document.write(html); win.document.close(); setTimeout(function(){ win.print(); },400); }
 }
 
+/* keyboard navigation */
+document.addEventListener('keydown', function(e){
+  var tag = document.activeElement ? document.activeElement.tagName : '';
+  if(tag==='INPUT'||tag==='TEXTAREA'||document.activeElement.contentEditable==='true') return;
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') goTo(current+1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') goTo(current-1);
+});
+
 /* ═══════════ shared module: matching (qamBuild) ═══════════ */
 var qamState = {};
 function qamBuild(exId, qContainerId, aContainerId, pairs, resultId, exampleQ, exampleA, answerOrder){
@@ -993,6 +996,84 @@ function qamReset(exId){
   var st=qamState[exId]; st.match={}; st.sel=null; st.checked=false;
   document.getElementById(st.resultId).textContent='';
   qamRender(exId);
+}
+
+/* ═══════════ shared module: passage word-match (pmBuild) — click a word inline in the
+   full original text, then click its definition. Used when the exercise needs the real
+   passage as context rather than isolated word cards. ═══════════ */
+var pmState = {};
+function pmBuild(exId, passageId, defsId, template, pairs, resultId, answerOrder){
+  pmState[exId] = { template:template, pairs:pairs, passageId:passageId, defsId:defsId,
+    resultId:resultId, match:{}, sel:null, checked:false, answerOrder:answerOrder };
+  pmRender(exId);
+}
+function pmRender(exId){
+  var st = pmState[exId];
+  var html = st.template;
+  st.pairs.forEach(function(item,i){
+    var mAi = st.match[i]; var isM = mAi!==undefined;
+    var isSel = st.sel===i;
+    var cls='pm-word';
+    if(st.checked && isM) cls += (mAi===i?' pm-correct':' pm-wrong');
+    else if(isM) cls+=' pm-matched';
+    else if(isSel) cls+=' pm-sel';
+    html = html.replace('{{'+i+'}}', '<span class="'+cls+'" onclick="pmClickWord(\''+exId+'\','+i+')">'+item.word+'</span>');
+  });
+  document.getElementById(st.passageId).innerHTML = html;
+
+  var defsEl = document.getElementById(st.defsId);
+  var reverseMatch = {}; Object.keys(st.match).forEach(function(k){ reverseMatch[st.match[k]] = Number(k); });
+  var defsHtml='';
+  st.answerOrder.forEach(function(idx){
+    var item = st.pairs[idx];
+    var filledWordIdx = reverseMatch[idx];
+    var isFilled = filledWordIdx!==undefined;
+    var blankCls='pm-blank'+(isFilled?' pm-filled':'');
+    if(st.checked && isFilled) blankCls += (filledWordIdx===idx?' pm-correct':' pm-wrong');
+    var blankText = isFilled ? st.pairs[filledWordIdx].word : '';
+    var aStyle = item.aSize ? (' style="font-size:'+item.aSize+';white-space:nowrap;"') : '';
+    defsHtml += '<div class="pm-def-row"><span class="'+blankCls+'" onclick="pmClickSlot(\''+exId+'\','+idx+')">'+blankText+'</span><span'+aStyle+'>'+item.a+'</span></div>';
+  });
+  defsEl.innerHTML = defsHtml;
+}
+function pmClickWord(exId,i){
+  var st=pmState[exId];
+  if(st.match[i]!==undefined){ delete st.match[i]; st.sel=null; }
+  else { st.sel = (st.sel===i)?null:i; }
+  st.checked=false;
+  document.getElementById(st.resultId).textContent='';
+  pmRender(exId);
+}
+function pmClickSlot(exId, idx){
+  var st=pmState[exId];
+  var filledWordIdx = null;
+  Object.keys(st.match).forEach(function(k){ if(st.match[k]===idx) filledWordIdx=Number(k); });
+  if(st.sel===null){
+    if(filledWordIdx!==null){ delete st.match[filledWordIdx]; }
+    else { return; }
+  } else {
+    if(filledWordIdx!==null) delete st.match[filledWordIdx];
+    st.match[st.sel]=idx;
+    st.sel=null;
+  }
+  st.checked=false;
+  document.getElementById(st.resultId).textContent='';
+  pmRender(exId);
+}
+function pmCheck(exId){
+  var st=pmState[exId];
+  var note=document.getElementById(st.resultId);
+  if(Object.keys(st.match).length<st.pairs.length){ note.textContent='Match all the words first!'; note.style.color='#C4614A'; return; }
+  var score=0;
+  st.pairs.forEach(function(item,i){ if(st.match[i]===i) score++; });
+  st.checked=true; pmRender(exId);
+  note.textContent=score+' / '+st.pairs.length+' correct';
+  note.style.color = score===st.pairs.length?'#1A7A4A':'#C4614A';
+}
+function pmReset(exId){
+  var st=pmState[exId]; st.match={}; st.sel=null; st.checked=false;
+  document.getElementById(st.resultId).textContent='';
+  pmRender(exId);
 }
 
 /* ═══════════ shared module: word order (woBuild) ═══════════ */
@@ -1224,16 +1305,20 @@ function xoReset(exId, rowsId){
 
 /* ═══════════════════════════════════════ S3 — Vocabulary match ═══════════════════════════════════════ */
 var s3Pairs = [
-  {q:'extravagance', a:'something that is expensive or wasteful'},
-  {q:'creativity', a:'the ability to produce something using imagination or artistic skills'},
-  {q:'professionalism', a:'a high standard of skill and behavior'},
-  {q:'rapport', a:'friendly understanding'},
-  {q:'innovation', a:'new ideas or methods'},
-  {q:'reputation', a:'the views generally held about somebody or something'},
-  {q:'principles', a:'strong beliefs that influence actions'},
-  {q:'tradition', a:"a way of doing something that's existed for a long time"}
+  {word:'reputation', a:'the views generally held about somebody or something'},
+  {word:'principles', a:'strong beliefs that influence actions'},
+  {word:'professionalism', a:'a high standard of skill and behavior'},
+  {word:'creativity', a:'the ability to produce something using imagination or artistic skills', aSize:'.82rem'},
+  {word:'extravagance', a:'something that is expensive or wasteful'},
+  {word:'innovation', a:'new ideas or methods'},
+  {word:'tradition', a:"a way of doing something that's existed for a long time"},
+  {word:'rapport', a:'friendly understanding'}
 ];
-qamBuild('s3','s3-q','s3-a', s3Pairs, 's3-result', null, null, [2,5,6,0,1,4,7,3]);
+var s3Template = '<div class="passage-kicker">Background</div><div class="passage-title">Impressions</div><div class="passage-body">'
+  + "<p>A company's image is like an orchestra. No single instrument is responsible for an orchestra's success or failure. Likewise, the image that a company projects is not based on a single business card, glossy brochure or fashionable display, but on the total impression created by all of these things and more. There are many intangibles that can be critical, like the {{0}} you have, your {{1}} and {{2}}, your {{3}}, and even the warmth of an initial welcome.</p>"
+  + "<p>For a company to come across well internationally, it also needs to consider the culture of its client or customer. A Finn might take an instant dislike to {{4}}, a Ghanaian might prefer {{5}} to {{6}}, a Qatari might put personal {{7}} before anything else.</p>"
+  + "<p>Images can create a negative impression or a positive feeling in a few seconds. If you get it right, that favorable first impression will help in building a successful business relationship.</p></div>";
+pmBuild('s3','s3-passage','s3-a', s3Template, s3Pairs, 's3-result', [3,6,0,7,2,4,1,5]);
 
 /* ═══════════════════════════════════════ S4 — Listening comprehension ═══════════════════════════════════════ */
 qaBuild('s4','s4-rows', [
@@ -1355,16 +1440,26 @@ qamBuild('s14','s14-q','s14-a', s14Pairs, 's14-result', null, null, [5,2,6,0,1,7
 
 /* ═══════════════════════════════════════ S17 — Social networking reading ═══════════════════════════════════════ */
 var s17VocabPairs = [
-  {q:'banned', a:'to officially say something is not allowed'},
-  {q:'collaboration', a:'working together to create or produce something'},
-  {q:'engage', a:'to interest and communicate with someone'},
-  {q:'utilize', a:'to make use of something'},
-  {q:'virtual', a:'made to appear to exist by computer'},
-  {q:'capture attention', a:'to make someone interested'},
-  {q:'proactive', a:'to act to stop future problems'},
-  {q:'alienating', a:'to cause someone to become disloyal'}
+  {word:'banned', a:'to officially say something is not allowed'},
+  {word:'collaboration', a:'working together to create or produce something'},
+  {word:'engage', a:'to interest and communicate with someone'},
+  {word:'utilize', a:'to make use of something'},
+  {word:'virtual', a:'made to appear to exist by computer'},
+  {word:'capture attention', a:'to make someone interested'},
+  {word:'proactive', a:'to act to stop future problems'},
+  {word:'alienating', a:'to cause someone to become disloyal'}
 ];
-qamBuild('s17','s17-q','s17-a', s17VocabPairs, 's17vocab-result', null, null, [4,0,6,2,7,1,3,5]);
+var s17Template = '<div class="passage-kicker">Reading File</div><div class="passage-title">Social networking sites</div><div class="passage-body">'
+  + "<p>Can social networking sites become useful business tools? Until recently that would have seemed unlikely. Sites such as Bebo and Facebook have been regarded as play things, aimed mainly at students and young people. In fact many workplaces have {{0}} their use, with bosses complaining that employees are wasting valuable time chatting with friends rather than working. But possibly things are about to change.</p>"
+  + "<p>Businesses are beginning to see these networking sites as valuable {{1}} tools, and the sites themselves are going to have more applications that are specifically aimed at the business user. Already there are sites such as LinkedIn and Ryze that are specifically for the business user.</p>"
+  + "<p>These sites claim they can help businesses to make valuable business contacts, find high-quality candidates and discover inside connections to help them close deals. Kristof Olsen of Computers Today points out that another benefit of networking sites for business is that they allow you to get a feeling about how the market sees your organization. They can help you {{2}} directly with your customers and attract traffic to your web presence.</p>"
+  + "<p>So how can companies make the most of networking sites? Industry expert Christine O'Donnell says that those business people who want to {{3}} the growth of networking sites for their businesses have to follow four simple rules.</p>"
+  + "<p>The first is that you shouldn't mix business with pleasure. \"Have discrete pages for your business and leisure personas,\" advises Christine. Potential clients do not want or need to see photos of your colleagues at the office party — this type of thing would look unprofessional and distract from the business image you are trying to create. First impressions count as much in the {{4}} world as in the real world.</p>"
+  + "<p>Secondly, have a small but lively networking profile. Christine advises businesses to regularly update their pages but not to over-fill them with irrelevant information. \"The real purpose of networking sites for businesses is to {{5}} and direct people back to your own websites. Use the networking sites to keep your customers informed of new developments and engage them in conversation.\"</p>"
+  + "<p>Thirdly, to make sure you are reaching the right audience you have to be {{6}}. It is no good sitting back and hoping that customers will find you. Start or join networks that are relevant to your business.</p>"
+  + "<p>The fourth rule is not to be too pushy. As in any walk of life, someone who is too persistent can end up {{7}} customers and damaging their own reputations.</p>"
+  + "<p>Possibly the most important piece of advice offered by both Christine and Kristof is to act now. Other people are already using social networking to develop a competitive advantage over you.</p>";
+pmBuild('s17','s17-passage','s17-a', s17Template, s17VocabPairs, 's17vocab-result', [4,0,6,2,7,1,3,5]);
 mcState['s17mc']={options:[
   "Do you know who's watching you?",
   'A new way to do business',
