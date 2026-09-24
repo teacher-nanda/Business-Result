@@ -53,17 +53,24 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .title-accent{display:inline-block;color:#F5893A;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px;}
 .col-section{display:flex;flex-direction:column;gap:16px;}
-.ex-row{background:#F4F8FA;border-radius:10px;padding:12px 16px;font-size:1.06rem;line-height:1.7;color:#1C2B3A;border-left:3px solid #c8e0cc;}
+.pm-defs-col{display:flex;flex-direction:column;gap:6px;}
+.ex-row{background:#F4F8FA;border-radius:10px;padding:12px 16px;font-size:1.06rem;line-height:1.65;color:#1C2B3A;border-left:3px solid #c8e0cc;}
 .ex-num{font-weight:800;color:#1A5C2A;margin-right:6px;}
 .ans-input{display:inline-block;border:none;border-bottom:2px solid #0E5C7A;background:transparent;font-size:1.05rem;font-family:inherit;font-weight:700;color:#1C2B3A;width:220px;padding:2px 4px;outline:none;flex-shrink:0;}
 .ans-input.correct{color:#1A7A4A;border-bottom-color:#1A7A4A;background:rgba(26,122,74,.08);border-radius:4px;}
 .ans-input.wrong{color:#C4614A;border-bottom-color:#C4614A;background:rgba(196,97,74,.1);border-radius:4px;}
-.q-row{background:#F4F8FA;border-radius:10px;padding:11px 16px;display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:1.06rem;color:#1C2B3A;flex-wrap:wrap;}
+.q-row{background:#F4F8FA;border-radius:10px;padding:11px 16px;display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:1.06rem;color:#1C2B3A;flex-wrap:wrap;line-height:1.65;}
+.q-row-stacked{background:#F4F8FA;border-radius:10px;padding:11px 14px;margin-bottom:14px;}
+.q-text-stacked{font-size:1.06rem;color:#1C2B3A;line-height:1.65;margin-bottom:8px;}
+.ans-box{width:100%;min-height:52px;border:2px solid #8BB0D0;border-radius:8px;padding:8px 10px;font-size:1.05rem;font-family:inherit;color:#1C2B3A;resize:vertical;outline:none;line-height:1.4;box-sizing:border-box;}
+.ans-box:focus{border-color:#1A5080;}
+.ans-box.correct{border-color:#1A7A4A;background:rgba(26,122,74,.08);}
+.ans-box.wrong{border-color:#C4614A;background:rgba(196,97,74,.1);}
 .q-text{flex-shrink:0;}
 .passage-card{background:#F4F0E4;border-radius:12px;padding:16px 18px;color:#2A2010;}
 .passage-kicker{font-size:1.05rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7A2A5A;}
 .passage-title{font-size:1.3rem;font-weight:900;margin-top:4px;color:#2A2010;}
-.passage-body{font-size:1.06rem;line-height:1.85;margin-top:10px;}
+.passage-body{font-size:1.06rem;line-height:1.65;margin-top:10px;}
 .passage-body p{margin-bottom:10px;}
 .passage-body ul{margin:6px 0 10px 20px;}
 .passage-body b{color:#7A2A5A;}
@@ -73,22 +80,28 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .pm-word.pm-matched{background:#EAF1FB;color:#1A5080;border-bottom-style:solid;border-bottom-color:#1A5080;}
 .pm-word.pm-correct{background:#EEF7F0;color:#1A5C2A;border-bottom-color:#1A7A4A;border-bottom-style:solid;}
 .pm-word.pm-wrong{background:#FCEEED;color:#C4614A;border-bottom-color:#C4614A;border-bottom-style:solid;}
-.pm-def-row{background:#F4F8FA;border-radius:10px;padding:9px 12px;font-size:1.05rem;color:#1C2B3A;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-.pm-blank{display:inline-block;min-width:90px;min-height:1.6em;text-align:center;border:2px dashed #8BB0D0;border-radius:8px;padding:4px 8px;font-weight:700;color:#1A5080;cursor:pointer;background:#EEF5FA;transition:all .15s;}
+.pm-def-row{background:#F4F8FA;border-radius:10px;padding:9px 12px;font-size:1.05rem;color:#1C2B3A;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.pm-blank{display:inline-block;min-width:70px;min-height:1.6em;text-align:center;border:2px dashed #8BB0D0;border-radius:8px;padding:4px 6px;font-weight:700;color:#1A5080;cursor:pointer;background:#EEF5FA;transition:all .15s;flex-shrink:0;}
 .pm-blank:hover{border-color:#1A5080;background:#E2EEFA;}
 .pm-blank.pm-filled{border-style:solid;}
 .pm-blank.pm-correct{background:#EEF7F0;border-color:#1A7A4A;color:#1A5C2A;}
 .pm-blank.pm-wrong{background:#FCEEED;border-color:#C4614A;color:#C4614A;}
+.split-read{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-top:6px;}
+.split-read>.split-col{max-height:min(58vh,480px);overflow-y:auto;}
+.split-read>.split-col.split-q{display:flex;flex-direction:column;}
+.media-discuss{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;margin-top:6px;}
+.media-discuss .media-col img{width:100%;border-radius:14px;display:block;box-shadow:0 6px 18px rgba(0,0,0,.15);}
+.media-discuss .q-col{display:flex;flex-direction:column;gap:14px;justify-content:center;}
 .speak-card{background:#F0EEF8;border-radius:14px;padding:16px 18px;border-left:4px solid #5A2A8C;margin-bottom:14px;}
 .speak-card .speak-num{font-weight:800;color:#4A1A7A;margin-bottom:6px;font-size:1.05rem;}
-.speak-card .speak-q{font-size:1.1rem;color:#1C2B3A;line-height:1.55;}
+.speak-card .speak-q{font-size:1.1rem;color:#1C2B3A;line-height:1.65;}
 .reveal-box{margin-top:10px;}
 .reveal-btn{background:none;border:1px solid #8BB0D0;border-radius:14px;color:#0E5C7A;font-size:1rem;font-weight:700;cursor:pointer;padding:4px 14px;transition:background .15s;}
 .reveal-btn:hover{background:#EAF4F8;}
-.reveal-panel{display:none;margin-top:8px;background:#EEF7F0;border-left:3px solid #1A7A4A;border-radius:8px;padding:10px 14px;font-size:1.05rem;line-height:1.6;color:#0A1E0F;}
+.reveal-panel{display:none;margin-top:8px;background:#EEF7F0;border-left:3px solid #1A7A4A;border-radius:8px;padding:10px 14px;font-size:1.05rem;line-height:1.65;color:#0A1E0F;}
 .reveal-panel.open{display:block;}
 .cat-row{background:#F4F8FA;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:1.06rem;color:#1C2B3A;}
-.cat-text{margin-bottom:9px;line-height:1.5;}
+.cat-text{margin-bottom:9px;line-height:1.65;}
 .cat-btns{display:flex;gap:8px;flex-wrap:wrap;}
 .cat-btn{padding:6px 14px;border-radius:20px;border:2px solid #ccc;background:#fff;color:#555;font-size:1rem;font-weight:700;cursor:pointer;transition:all .15s;font-family:inherit;}
 .cat-btn:hover{border-color:#1A5080;}
@@ -96,9 +109,9 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .cat-btn.correct{background:#1A7A4A;color:#fff;border-color:#1A7A4A;}
 .cat-btn.wrong{background:#C4614A;color:#fff;border-color:#C4614A;}
 .mc-question{margin-bottom:14px;}
-.mc-q-text{font-size:1.05rem;font-weight:700;color:#0A2010;margin-bottom:8px;line-height:1.5;}
+.mc-q-text{font-size:1.05rem;font-weight:700;color:#0A2010;margin-bottom:8px;line-height:1.65;}
 .mc-opts{display:flex;flex-direction:row;gap:10px;flex-wrap:wrap;}
-.mc-opt{background:#F4F8FA;border:2px solid #dde;border-radius:8px;padding:7px 14px;font-size:1.05rem;color:#1C2B3A;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .15s;flex:0 0 auto;line-height:1.4;}
+.mc-opt{background:#F4F8FA;border:2px solid #dde;border-radius:8px;padding:7px 14px;font-size:1.05rem;color:#1C2B3A;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .15s;flex:0 0 auto;line-height:1.65;}
 .mc-opt:hover{border-color:#1A5080;background:#EEF5FA;}
 .mc-opt.mc-sel{background:#1A4A8C;border-color:#1A4A8C;color:#fff;}
 .mc-opt.mc-ok{background:#1A7A4A;border-color:#1A7A4A;color:#fff;}
@@ -125,21 +138,21 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .key-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
 .key-block{background:#F4F8FA;border-radius:12px;padding:14px 16px;border-top:4px solid #1A4A8C;}
 .key-block h3{font-size:1.08rem;font-weight:800;color:#1A4A8C;margin-bottom:8px;}
-.key-block ul{padding-left:18px;font-size:1.05rem;line-height:1.75;color:#1C2B3A;}
+.key-block ul{padding-left:18px;font-size:1.05rem;line-height:1.65;color:#1C2B3A;}
 .review-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
 .review-card{background:#F0FAF3;border-radius:12px;padding:16px 18px;border-top:4px solid #1A7A4A;}
 .review-card h3{font-size:1.1rem;font-weight:800;color:#1A5C2A;margin-bottom:8px;}
-.review-card ul{padding-left:18px;font-size:1.06rem;line-height:1.85;color:#1C2B3A;}
-.quote-box{margin-top:16px;background:linear-gradient(120deg,#1A4A8C,#0E5C7A);border-radius:14px;padding:18px 22px;color:#fff;font-size:1.1rem;line-height:1.6;font-style:italic;}
+.review-card ul{padding-left:18px;font-size:1.06rem;line-height:1.65;color:#1C2B3A;}
+.quote-box{margin-top:16px;background:linear-gradient(120deg,#1A4A8C,#0E5C7A);border-radius:14px;padding:18px 22px;color:#fff;font-size:1.1rem;line-height:1.65;font-style:italic;}
 #s-hw{background:linear-gradient(145deg,#1F1400 0%,#7A4A0F 55%,#C4841A 100%);}
 .audio-wrap{background:linear-gradient(135deg,#EAF5F8,#D4EEF5);border:2px solid #14607A;border-radius:14px;padding:14px 20px;margin:12px 0;display:flex;align-items:center;gap:14px;}
-.task-step{background:#FFF4EE;border-left:4px solid #C45020;border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:12px;font-size:1.06rem;line-height:1.6;color:#1C2B3A;}
+.task-step{background:#FFF4EE;border-left:4px solid #C45020;border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:12px;font-size:1.06rem;line-height:1.65;color:#1C2B3A;}
 .task-step b{color:#C45020;}
 /* ═══ carousel module ═══ */
 .carousel-wrap{background:#FFF9F0;border-radius:16px;padding:20px 26px;border:2px solid #E0B168;position:relative;min-height:210px;}
 .carousel-count{position:absolute;top:14px;right:20px;font-size:.95rem;font-weight:800;color:#B5790F;background:#FCEDD2;padding:3px 12px;border-radius:12px;}
 .carousel-tipnum{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#C4841A;color:#fff;font-weight:900;font-size:1.1rem;margin-bottom:10px;}
-.carousel-body{font-size:1.12rem;line-height:1.7;color:#3A2A0A;}
+.carousel-body{font-size:1.12rem;line-height:1.65;color:#3A2A0A;}
 .carousel-nav{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:18px;}
 .carousel-btn{background:#C4841A;color:#fff;border:none;padding:8px 20px;border-radius:20px;cursor:pointer;font-size:1rem;font-weight:700;transition:background .2s;}
 .carousel-btn:hover:not(:disabled){background:#9C6A14;}
@@ -158,25 +171,25 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
 .fc-front .fc-label{font-size:1.15rem;font-weight:800;}
 .fc-front .fc-hint{font-size:.9rem;margin-top:8px;opacity:.75;}
 .fc-back{background:#F4F8FA;border:2px solid #1A4A8C;transform:rotateY(180deg);align-items:flex-start;text-align:left;overflow-y:auto;}
-.fc-back ul{padding-left:18px;font-size:1rem;line-height:1.6;color:#1C2B3A;}
+.fc-back ul{padding-left:18px;font-size:1rem;line-height:1.65;color:#1C2B3A;}
 /* ═══ bingo module ═══ */
 .bingo-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:start;margin-top:10px;}
 .bingo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.bingo-cell{background:#F4F8FA;border:2px solid #ccd;border-radius:8px;padding:10px 6px;text-align:center;font-size:1.05rem;font-weight:700;color:#1C2B3A;cursor:pointer;min-height:58px;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1.25;}
+.bingo-cell{background:#F4F8FA;border:2px solid #ccd;border-radius:8px;padding:10px 6px;text-align:center;font-size:1.05rem;font-weight:700;color:#1C2B3A;cursor:pointer;min-height:58px;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1.65;}
 .bingo-cell:hover{border-color:#1A5080;}
 .bingo-cell.marked{background:#1A7A4A;color:#fff;border-color:#1A7A4A;}
 .bingo-cell.shake{animation:bingoShake .3s;border-color:#C4614A;background:#FCEEED;}
 @keyframes bingoShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-4px);}75%{transform:translateX(4px);}}
 .bingo-clue-box{background:#FFF4EE;border:2px solid #C45020;border-radius:14px;padding:18px 20px;min-height:130px;display:flex;flex-direction:column;justify-content:center;}
 .bingo-clue-label{font-size:.9rem;font-weight:800;color:#C45020;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;}
-.bingo-clue-text{font-size:1.15rem;color:#3A2010;line-height:1.5;}
+.bingo-clue-text{font-size:1.15rem;color:#3A2010;line-height:1.65;}
 .bingo-status{margin-top:14px;font-weight:700;font-size:1.05rem;}
 /* ═══ dice module ═══ */
 .dice-wrap{background:#F0EEF8;border-radius:16px;padding:24px 26px;border:2px solid #8A5AC8;text-align:center;}
 .dice-face{width:90px;height:90px;background:#fff;border:3px solid #5A2A8C;border-radius:16px;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:900;color:#4A1A7A;box-shadow:0 4px 10px rgba(90,42,140,.25);transition:transform .3s;}
 .dice-face.rolling{animation:diceSpin .4s;}
 @keyframes diceSpin{0%{transform:rotate(0deg) scale(1);}50%{transform:rotate(180deg) scale(1.15);}100%{transform:rotate(360deg) scale(1);}}
-.dice-prompt{background:#fff;border-radius:12px;padding:16px 20px;font-size:1.15rem;color:#1C2B3A;line-height:1.6;min-height:60px;margin-bottom:14px;border-left:4px solid #5A2A8C;text-align:left;}
+.dice-prompt{background:#fff;border-radius:12px;padding:16px 20px;font-size:1.15rem;color:#1C2B3A;line-height:1.65;min-height:60px;margin-bottom:14px;border-left:4px solid #5A2A8C;text-align:left;}
 .dice-btn{background:#5A2A8C;color:#fff;border:none;padding:10px 26px;border-radius:22px;cursor:pointer;font-size:1.05rem;font-weight:700;transition:background .2s;margin:0 6px;}
 .dice-btn:hover{background:#4A1A7A;}
 .dice-btn.secondary{background:transparent;border:2px solid #5A2A8C;color:#5A2A8C;}
@@ -228,19 +241,23 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>What Motivates You?</h2>
-      <p class="inst-light">Read and think about the questions, then share your opinion.</p>
-      <img src="images/u2_cover_photo.jpg" alt="Outdoor terrace at an incentive event" style="width:100%;border-radius:12px;margin-bottom:16px;">
-      <div class="speak-card">
-        <div class="speak-num">1</div>
-        <div class="speak-q">Here are some things that can motivate people at work: colleagues, interesting work, gifts for achieving targets, promotion, training, flexible working hours, money, job security. Which three matter most to you? Put them in order and explain why. What else would you add to the list?</div>
-      </div>
-      <div class="speak-card">
-        <div class="speak-num">2</div>
-        <div class="speak-q">What is the difference between "a reward" and "an incentive"?</div>
-      </div>
-      <div class="speak-card">
-        <div class="speak-num">3</div>
-        <div class="speak-q">What different rewards and incentives does your company offer?</div>
+      <p class="inst-light">Look at the picture, then read and think about the questions.</p>
+      <div class="media-discuss">
+        <div class="media-col"><img src="images/u2_cover_photo.jpg" alt="Outdoor terrace at an incentive event"></div>
+        <div class="q-col">
+          <div class="speak-card">
+            <div class="speak-num">1</div>
+            <div class="speak-q">Here are some things that can motivate people at work: colleagues, interesting work, gifts for achieving targets, promotion, training, flexible working hours, money, job security.<br>Which three matter most to you?<br>Put them in order and explain why.<br>What else would you add to the list?</div>
+          </div>
+          <div class="speak-card">
+            <div class="speak-num">2</div>
+            <div class="speak-q">What is the difference between "a reward" and "an incentive"?</div>
+          </div>
+          <div class="speak-card">
+            <div class="speak-num">3</div>
+            <div class="speak-q">What different rewards and incentives does your company offer?</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -252,29 +269,35 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Incentive Schemes or Cash?</h2>
-      <p class="inst-light">Read the text. Is it negative or positive about incentive schemes? Then answer the questions below.</p>
-      <div class="passage-card">
-        <div class="passage-kicker">Working with Words</div>
-        <div class="passage-title">Incentive schemes or cash?</div>
-        <div class="passage-body">
-          <p>Employers often don't know whether to offer <b>incentive schemes</b> (such as travel, trips, excursions, social events, merchandise) or cash to help their company achieve its goals. When you ask employees what they want, they generally say "more money" — but salary increases or <b>annual bonuses</b> are not always the best way to <b>motivate staff</b>. <b>Non-cash rewards</b> such as merchandise and travel can be a far more effective way to <b>improve performance</b>, <b>boost staff morale</b> and <b>foster company loyalty</b>.</p>
-          <p><b>Why do non-cash incentive schemes work better?</b></p>
-          <ul>
-            <li>They provide a lasting reminder of the <b>achievement</b> and the positive feelings that go with it.</li>
-            <li>They offer rewards that can be shown to others or talked about — and it is socially acceptable to "boast" about the achievement. The same certainly cannot be said for cash.</li>
-            <li>They provide a guilt-free form of reward, often something employees would not otherwise do or buy, whereas they may feel guilty for not spending cash on necessities.</li>
-            <li>They have a higher perceived value. The actual cash value is secondary to the <b>recognition</b>.</li>
-            <li>The employee's family is often involved in the reward selection and the reward chosen may <b>benefit</b> the whole family.</li>
-            <li>Extra cash in the monthly pay packet disappears into the bank account or wallet. In fact, 72% of people receiving cash rewards use it to pay bills, can't remember what they spent it on, or don't even know they received it!</li>
-          </ul>
+      <p class="inst-light">Read the text.<br>Is it negative or positive about incentive schemes?<br>Then answer the questions below.</p>
+      <div class="split-read">
+        <div class="split-col">
+          <div class="passage-card">
+            <div class="passage-kicker">Working with Words</div>
+            <div class="passage-title">Incentive schemes or cash?</div>
+            <div class="passage-body">
+              <p>Employers often don't know whether to offer <b>incentive schemes</b> (such as travel, trips, excursions, social events, merchandise) or cash to help their company achieve its goals. When you ask employees what they want, they generally say "more money" — but salary increases or <b>annual bonuses</b> are not always the best way to <b>motivate staff</b>. <b>Non-cash rewards</b> such as merchandise and travel can be a far more effective way to <b>improve performance</b>, <b>boost staff morale</b> and <b>foster company loyalty</b>.</p>
+              <p><b>Why do non-cash incentive schemes work better?</b></p>
+              <ul>
+                <li>They provide a lasting reminder of the <b>achievement</b> and the positive feelings that go with it.</li>
+                <li>They offer rewards that can be shown to others or talked about — and it is socially acceptable to "boast" about the achievement. The same certainly cannot be said for cash.</li>
+                <li>They provide a guilt-free form of reward, often something employees would not otherwise do or buy, whereas they may feel guilty for not spending cash on necessities.</li>
+                <li>They have a higher perceived value. The actual cash value is secondary to the <b>recognition</b>.</li>
+                <li>The employee's family is often involved in the reward selection and the reward chosen may <b>benefit</b> the whole family.</li>
+                <li>Extra cash in the monthly pay packet disappears into the bank account or wallet. In fact, 72% of people receiving cash rewards use it to pay bills, can't remember what they spent it on, or don't even know they received it!</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="split-col split-q">
+          <div id="s2-rows"></div>
+          <div class="hw-btns">
+            <button class="btn-check" onclick="checkS2()">✓ Check</button>
+            <button class="btn-reset" onclick="resetS2()">↺ Reset</button>
+          </div>
+          <div id="s2-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
         </div>
       </div>
-      <div id="s2-rows" style="margin-top:16px;"></div>
-      <div class="hw-btns">
-        <button class="btn-check" onclick="checkS2()">✓ Check</button>
-        <button class="btn-reset" onclick="resetS2()">↺ Reset</button>
-      </div>
-      <div id="s2-result" style="margin-top:10px;font-weight:700;font-size:1.05rem;"></div>
     </div>
   </div>
 </div>
@@ -286,9 +309,9 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
     <div class="content">
       <h2>Match the Words to the Definitions</h2>
       <p class="instruction">Click a bold word in the text, then click the blank next to its definition.</p>
-      <div style="display:grid;grid-template-columns:1fr 1.25fr;gap:20px;align-items:start;">
-        <div class="passage-card" id="s3-passage" style="max-height:460px;overflow-y:auto;line-height:1.9;font-size:1.04rem;"></div>
-        <div class="col-section" id="s3-a"></div>
+      <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:20px;align-items:start;">
+        <div class="passage-card" id="s3-passage" style="max-height:min(58vh,480px);overflow-y:auto;line-height:1.65;font-size:1.06rem;"></div>
+        <div class="pm-defs-col" id="s3-a" style="max-height:min(58vh,480px);overflow-y:auto;"></div>
       </div>
       <div class="hw-btns">
         <button class="btn-check" onclick="pmCheck('s3')">✓ Check</button>
@@ -343,10 +366,10 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Design Your Own Company</h2>
-      <p class="inst-light">Imagine you are setting up your own company. Think about the questions and share your ideas.</p>
-      <div class="speak-card"><div class="speak-num">1</div><div class="speak-q">Which of the material benefits are standard in an employment contract in your country? Which are additional benefits, and how does this vary by profession?</div></div>
-      <div class="speak-card"><div class="speak-num">2</div><div class="speak-q">How important are the non-material benefits to you? How do they compare to the material benefits?</div></div>
-      <div class="speak-card"><div class="speak-num">3</div><div class="speak-q">Decide on the type of company (service or product oriented) and how many employees you will need. What benefits, rewards, and incentives will you offer your employees, and what effects will these have for both the employee and the company?</div></div>
+      <p class="inst-light">Imagine you are setting up your own company.<br>Think about the questions and share your ideas.</p>
+      <div class="speak-card"><div class="speak-num">1</div><div class="speak-q">Which of the material benefits are standard in an employment contract in your country?<br>Which are additional benefits, and how does this vary by profession?</div></div>
+      <div class="speak-card"><div class="speak-num">2</div><div class="speak-q">How important are the non-material benefits to you?<br>How do they compare to the material benefits?</div></div>
+      <div class="speak-card"><div class="speak-num">3</div><div class="speak-q">Decide on the type of company (service or product oriented) and how many employees you will need.<br>What benefits, rewards, and incentives will you offer your employees, and what effects will these have for both the employee and the company?</div></div>
       <div class="speak-card"><div class="speak-num">4</div><div class="speak-q">How will you make sure your employees receive some of the non-material benefits too?</div></div>
     </div>
   </div>
@@ -358,7 +381,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>10 Tips for Great Small Talk</h2>
-      <p class="inst-light">Flip through the tips with the arrows. Decide which five you think are the most useful, and why.</p>
+      <p class="inst-light">Flip through the tips with the arrows.<br>Decide which five you think are the most useful, and why.</p>
       <div id="s7-carousel"></div>
     </div>
   </div>
@@ -370,7 +393,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Four Conversations at the Event</h2>
-      <p class="inst-light">A global media company has organized a one-week cruise to reward its most successful staff. Listen to four conversations from the first evening and answer the questions.</p>
+      <p class="inst-light">A global media company has organized a one-week cruise to reward its most successful staff.<br>Listen to four conversations from the first evening and answer the questions.</p>
       <div class="audio-wrap">
         <span style="font-size:2rem;">🎧</span>
         <audio controls style="flex:1;width:100%;accent-color:#14607A;"><source src="audio/u2_track06_smalltalk_conversations.mp3" type="audio/mpeg"></audio>
@@ -403,7 +426,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Exiting a Conversation</h2>
-      <p class="inst-light">Roll the dice to get a phrase. On its own it might sound a little rude — say it out loud to your teacher, then add a polite follow-up phrase of your own to soften it.</p>
+      <p class="inst-light">Roll the dice to get a phrase.<br>On its own it might sound a little rude — say it out loud to your teacher, then add a polite follow-up phrase of your own to soften it.</p>
       <div id="s10-dice"></div>
     </div>
   </div>
@@ -440,7 +463,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>What Kind of Question Is It?</h2>
-      <p class="instruction">These are real questions from the conversations you heard. Click the category each question belongs to.</p>
+      <p class="instruction">These are real questions from the conversations you heard.<br>Click the category each question belongs to.</p>
       <div id="s12-rows"></div>
       <div class="hw-btns">
         <button class="btn-check" onclick="checkS12()">✓ Check</button>
@@ -457,7 +480,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Question Tags Game</h2>
-      <p class="inst-light">Question tags are often used to start a conversation or keep it going. Roll the dice, add the correct question tag to the statement out loud, then type it to check. Reply to your teacher with a comment — not just "yes" or "no".</p>
+      <p class="inst-light">Question tags are often used to start a conversation or keep it going.<br>Roll the dice, add the correct question tag to the statement out loud, then type it to check.<br>Reply to your teacher with a comment — not just "yes" or "no".</p>
       <div style="background:#FFF4EE;border-left:4px solid #C45020;border-radius:0 10px 10px 0;padding:10px 16px;margin-bottom:14px;font-size:1.05rem;color:#1C2B3A;"><b style="color:#C45020;">Example:</b> Everyone enjoyed themselves, <i>didn't they?</i> — Yes, it was a great party.</div>
       <div id="s13-dice"></div>
     </div>
@@ -470,7 +493,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>A Successful Follow-Up</h2>
-      <p class="inst-light">Later that evening, Harry has a second, successful conversation with Adriana. Listen and answer the questions.</p>
+      <p class="inst-light">Later that evening, Harry has a second, successful conversation with Adriana.<br>Listen and answer the questions.</p>
       <div class="audio-wrap">
         <span style="font-size:2rem;">🎧</span>
         <audio controls style="flex:1;width:100%;accent-color:#14607A;"><source src="audio/u2_track07_adriana_followup.mp3" type="audio/mpeg"></audio>
@@ -491,7 +514,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Vocabulary Bingo</h2>
-      <p class="inst-light">Read each clue, then click the matching word in the grid to mark it. Try to mark every word!</p>
+      <p class="inst-light">Read each clue, then click the matching word in the grid to mark it.<br>Try to mark every word!</p>
       <div id="s15-bingo"></div>
     </div>
   </div>
@@ -504,26 +527,32 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
     <div class="content">
       <h2>Solving Staffing Problems</h2>
       <p class="inst-light">Read the background text, then think about the questions and share your opinion.</p>
-      <div class="passage-card">
-        <div class="passage-kicker">Background</div>
-        <div class="passage-title">Improving staff morale at Palmate Hellas</div>
-        <div class="passage-body">
-          <p>Palmate Hellas is the Greek subsidiary (270 employees) of an international company specializing in household products. The company has quite a loose structure, which worked well when it was first introduced. Each department is responsible for its own personnel and has a budget allocated to it each year for new hires and personal development. There is quite a difference between departments' priorities for spending their budget and sometimes personal development is not as promoted as other areas. HR is reported back to on an annual basis and it has an advisory role, enforcing policies and guidelines and only intervening in staffing issues when necessary. The one policy which is enforced company-wide is that of fixed working hours.</p>
-          <p>Over the last five years, Palmate Hellas has had to deal with high staff turnover and absenteeism in particular departments. The company has decided to carry out an employee satisfaction survey (to find out what staff think about the company) with a view to reducing staffing problems.</p>
-          <p><b>The Expert View</b> — "Staff morale and productivity are linked in complicated ways. Employees want to know that they are respected by the organization and are being treated fairly. Increasingly, organizations understand the need to address issues such as quality of working life and work-life balance. This is done through a package of benefits as well as pay — these may include flexible working, training provision and other innovations. Whilst company-wide policies need to be consistently and equitably applied, the key is to treat everyone as an individual, with their own circumstances, needs and desires." — Richard Kwiatkowski, Senior Lecturer in Organizational Psychology, Cranfield School of Management</p>
+      <div class="split-read">
+        <div class="split-col">
+          <div class="passage-card">
+            <div class="passage-kicker">Background</div>
+            <div class="passage-title">Improving staff morale at Palmate Hellas</div>
+            <div class="passage-body">
+              <p>Palmate Hellas is the Greek subsidiary (270 employees) of an international company specializing in household products. The company has quite a loose structure, which worked well when it was first introduced. Each department is responsible for its own personnel and has a budget allocated to it each year for new hires and personal development. There is quite a difference between departments' priorities for spending their budget and sometimes personal development is not as promoted as other areas. HR is reported back to on an annual basis and it has an advisory role, enforcing policies and guidelines and only intervening in staffing issues when necessary. The one policy which is enforced company-wide is that of fixed working hours.</p>
+              <p>Over the last five years, Palmate Hellas has had to deal with high staff turnover and absenteeism in particular departments. The company has decided to carry out an employee satisfaction survey (to find out what staff think about the company) with a view to reducing staffing problems.</p>
+              <p><b>The Expert View</b> — "Staff morale and productivity are linked in complicated ways. Employees want to know that they are respected by the organization and are being treated fairly. Increasingly, organizations understand the need to address issues such as quality of working life and work-life balance. This is done through a package of benefits as well as pay — these may include flexible working, training provision and other innovations. Whilst company-wide policies need to be consistently and equitably applied, the key is to treat everyone as an individual, with their own circumstances, needs and desires." — Richard Kwiatkowski, Senior Lecturer in Organizational Psychology, Cranfield School of Management</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="speak-card" style="margin-top:16px;">
-        <div class="speak-num">1</div>
-        <div class="speak-q">What are some reasons for low staff morale and motivation in companies?</div>
-      </div>
-      <div class="speak-card">
-        <div class="speak-num">2</div>
-        <div class="speak-q">How important is it for companies to have guidelines in place to ensure their employees are kept motivated? What examples do you know of?</div>
-      </div>
-      <div class="speak-card">
-        <div class="speak-num">3</div>
-        <div class="speak-q">What reasons could there be for the staff's lack of motivation at Palmate?</div>
+        <div class="split-col split-q">
+          <div class="speak-card">
+            <div class="speak-num">1</div>
+            <div class="speak-q">What are some reasons for low staff morale and motivation in companies?</div>
+          </div>
+          <div class="speak-card">
+            <div class="speak-num">2</div>
+            <div class="speak-q">How important is it for companies to have guidelines in place to ensure their employees are kept motivated?<br>What examples do you know of?</div>
+          </div>
+          <div class="speak-card">
+            <div class="speak-num">3</div>
+            <div class="speak-q">What reasons could there be for the staff's lack of motivation at Palmate?</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -535,11 +564,11 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
   <div class="slide-main">
     <div class="content">
       <h2>Task: Advise Palmate Hellas</h2>
-      <p class="inst-light">Your teacher will play an HR consultant who has just carried out the employee satisfaction survey at Palmate Hellas. Work through the steps below.</p>
-      <div class="task-step"><b>Step 1 — Interview.</b> Ask your teacher questions to find out what the survey revealed about training, communication, management, and working conditions at Palmate.</div>
-      <div class="task-step"><b>Step 2 — Discuss.</b> Talk about what could be done to solve the company's staffing problems, using ideas from this unit — material and non-material benefits, small talk and rapport-building, motivation theory.</div>
-      <div class="task-step"><b>Step 3 — Prioritize.</b> Draft a list of priorities and present the five best ideas to your teacher, explaining your reasoning.</div>
-      <div class="task-step"><b>Step 4 — Role-play.</b> Have a short small-talk conversation with your teacher as if you were both attending the company's next staff event — practice starting, keeping going, and exiting the conversation politely.</div>
+      <p class="inst-light">Your teacher will play an HR consultant who has just carried out the employee satisfaction survey at Palmate Hellas.<br>Work through the steps below.</p>
+      <div class="task-step"><b>Step 1 — Interview.</b><br>Ask your teacher questions to find out what the survey revealed about training, communication, management, and working conditions at Palmate.</div>
+      <div class="task-step"><b>Step 2 — Discuss.</b><br>Talk about what could be done to solve the company's staffing problems, using ideas from this unit — material and non-material benefits, small talk and rapport-building, motivation theory.</div>
+      <div class="task-step"><b>Step 3 — Prioritize.</b><br>Draft a list of priorities and present the five best ideas to your teacher, explaining your reasoning.</div>
+      <div class="task-step"><b>Step 4 — Role-play.</b><br>Have a short small-talk conversation with your teacher as if you were both attending the company's next staff event — practice starting, keeping going, and exiting the conversation politely.</div>
     </div>
   </div>
 </div>
@@ -693,7 +722,7 @@ h2{font-size:1.85rem;font-weight:800;color:#0A0502;margin-bottom:14px;}
       </div>
       <div class="speak-card" style="margin-top:16px;">
         <div class="speak-num">2</div>
-        <div class="speak-q">Bob Nelson advises that motivation should be maintained continuously rather than rebuilt after it's lost. Which piece of advice from this unit would be most useful for your own work? Be ready to share your opinion next lesson.</div>
+        <div class="speak-q">Bob Nelson advises that motivation should be maintained continuously rather than rebuilt after it's lost.<br>Which piece of advice from this unit would be most useful for your own work?<br>Be ready to share your opinion next lesson.</div>
       </div>
     </div>
   </div>
@@ -1109,21 +1138,30 @@ function catBuild(exId, rowsId, items, cats, resultId){
   catState[exId] = { items:items, cats:cats, sel:{}, checked:false, resultId:resultId };
   catRender(exId, rowsId);
 }
+function catRowHtml(item,i,exId,rowsId,st){
+  var html='<div class="cat-row"><div class="cat-text">'+(i+1)+'. '+item.text+'</div><div class="cat-btns">';
+  st.cats.forEach(function(cat,ci){
+    var cls='cat-btn';
+    if(st.checked && st.sel[i]===ci){ cls+= (ci===item.correct?' correct':' wrong'); }
+    else if(st.sel[i]===ci){ cls+=' sel'; }
+    html+='<button class="'+cls+'" onclick="catPick(\''+exId+'\','+i+','+ci+',\''+rowsId+'\')">'+cat+'</button>';
+  });
+  html+='</div></div>';
+  return html;
+}
 function catRender(exId, rowsId){
   var st=catState[exId];
   var el=document.getElementById(rowsId);
-  var html='';
-  st.items.forEach(function(item,i){
-    html+='<div class="cat-row"><div class="cat-text">'+(i+1)+'. '+item.text+'</div><div class="cat-btns">';
-    st.cats.forEach(function(cat,ci){
-      var cls='cat-btn';
-      if(st.checked && st.sel[i]===ci){ cls+= (ci===item.correct?' correct':' wrong'); }
-      else if(st.sel[i]===ci){ cls+=' sel'; }
-      html+='<button class="'+cls+'" onclick="catPick(\''+exId+'\','+i+','+ci+',\''+rowsId+'\')">'+cat+'</button>';
-    });
-    html+='</div></div>';
-  });
-  el.innerHTML=html;
+  if(st.items.length>=4){
+    var mid=Math.ceil(st.items.length/2);
+    var leftHtml='', rightHtml='';
+    st.items.forEach(function(item,i){ var row=catRowHtml(item,i,exId,rowsId,st); if(i<mid) leftHtml+=row; else rightHtml+=row; });
+    el.innerHTML='<div class="two-col"><div class="col-section">'+leftHtml+'</div><div class="col-section">'+rightHtml+'</div></div>';
+  } else {
+    var html='';
+    st.items.forEach(function(item,i){ html+=catRowHtml(item,i,exId,rowsId,st); });
+    el.innerHTML=html;
+  }
 }
 function catPick(exId,i,ci,rowsId){
   var st=catState[exId];
@@ -1147,15 +1185,31 @@ function catReset(exId, rowsId){
   catRender(exId, rowsId);
 }
 
-/* ═══════════ shared module: typed short-answer rows (qaBuild) ═══════════ */
+/* ═══════════ shared module: typed short-answer rows (qaBuild) ═══════════
+   Auto two-column split when there are 4+ items (matches the qamBuild/woBuild
+   column standard). Pass `stacked:true` as the 5th arg for exercises that live
+   inside a narrow split-read column — renders a full-width 2-line answer box
+   under each question instead of a short inline line. ═══════════ */
 var qaState = {};
-function qaBuild(exId, rowsId, items, resultId){
-  qaState[exId] = { items:items, resultId:resultId };
-  var html='';
-  items.forEach(function(item,i){
-    html+='<div class="q-row"><span class="ex-num">'+(i+1)+'.</span><span class="q-text">'+item.q+'</span><input type="text" class="ans-input" id="'+exId+'-inp-'+i+'"></div>';
-  });
-  document.getElementById(rowsId).innerHTML=html;
+function qaRowInline(item,i,exId){
+  return '<div class="q-row"><span class="ex-num">'+(i+1)+'.</span><span class="q-text">'+item.q+'</span><input type="text" class="ans-input" id="'+exId+'-inp-'+i+'"></div>';
+}
+function qaRowStacked(item,i,exId){
+  return '<div class="q-row-stacked"><div class="q-text-stacked"><span class="ex-num">'+(i+1)+'.</span> '+item.q+'</div><textarea class="ans-box" id="'+exId+'-inp-'+i+'" rows="2"></textarea></div>';
+}
+function qaBuild(exId, rowsId, items, resultId, stacked){
+  qaState[exId] = { items:items, resultId:resultId, rowsId:rowsId, stacked:!!stacked };
+  var el = document.getElementById(rowsId);
+  if(stacked){
+    el.innerHTML = items.map(function(it,i){ return qaRowStacked(it,i,exId); }).join('');
+  } else if(items.length>=4){
+    var mid = Math.ceil(items.length/2);
+    var leftHtml='', rightHtml='';
+    items.forEach(function(item,i){ var row=qaRowInline(item,i,exId); if(i<mid) leftHtml+=row; else rightHtml+=row; });
+    el.innerHTML = '<div class="two-col"><div class="col-section">'+leftHtml+'</div><div class="col-section">'+rightHtml+'</div></div>';
+  } else {
+    el.innerHTML = items.map(function(it,i){ return qaRowInline(it,i,exId); }).join('');
+  }
 }
 function qaCheck(exId){
   var st=qaState[exId];
@@ -1174,7 +1228,7 @@ function qaCheck(exId){
 }
 function qaReset(exId, rowsId){
   var st=qaState[exId];
-  qaBuild(exId, rowsId, st.items, st.resultId);
+  qaBuild(exId, rowsId, st.items, st.resultId, st.stacked);
   document.getElementById(st.resultId).textContent='';
 }
 
@@ -1207,23 +1261,32 @@ function xoBuild(exId, rowsId, items, resultId){
   xoState[exId] = { items:items, sel:{}, checked:{}, resultId:resultId };
   xoRender(exId, rowsId);
 }
+function xoRowHtml(item,i,exId,rowsId,st){
+  var html='<div class="ex-row" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><span class="ex-num">'+(i+1)+'.</span><span>'+item.pre+'</span>';
+  item.opts.forEach(function(opt,oi){
+    var cls='cross-word';
+    var sel=st.sel[i];
+    if(st.checked[i]){
+      if(oi===item.correct) cls+=' correct-keep'; else if(sel===oi) cls+=' wrong-keep';
+    } else if(sel===oi){ cls+=' struck'; }
+    html+='<span class="'+cls+'" onclick="xoPick(\''+exId+'\','+i+','+oi+',\''+rowsId+'\')">'+opt+'</span>';
+  });
+  html+='<span>'+item.post+'</span></div>';
+  return html;
+}
 function xoRender(exId, rowsId){
   var st=xoState[exId];
   var el=document.getElementById(rowsId);
-  var html='';
-  st.items.forEach(function(item,i){
-    html+='<div class="ex-row" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><span class="ex-num">'+(i+1)+'.</span><span>'+item.pre+'</span>';
-    item.opts.forEach(function(opt,oi){
-      var cls='cross-word';
-      var sel=st.sel[i];
-      if(st.checked[i]){
-        if(oi===item.correct) cls+=' correct-keep'; else if(sel===oi) cls+=' wrong-keep';
-      } else if(sel===oi){ cls+=' struck'; }
-      html+='<span class="'+cls+'" onclick="xoPick(\''+exId+'\','+i+','+oi+',\''+rowsId+'\')">'+opt+'</span>';
-    });
-    html+='<span>'+item.post+'</span></div>';
-  });
-  el.innerHTML=html;
+  if(st.items.length>=4){
+    var mid=Math.ceil(st.items.length/2);
+    var leftHtml='', rightHtml='';
+    st.items.forEach(function(item,i){ var row=xoRowHtml(item,i,exId,rowsId,st); if(i<mid) leftHtml+=row; else rightHtml+=row; });
+    el.innerHTML='<div class="two-col"><div class="col-section">'+leftHtml+'</div><div class="col-section">'+rightHtml+'</div></div>';
+  } else {
+    var html='';
+    st.items.forEach(function(item,i){ html+=xoRowHtml(item,i,exId,rowsId,st); });
+    el.innerHTML=html;
+  }
 }
 function xoPick(exId,i,oi,rowsId){
   var st=xoState[exId];
@@ -1416,7 +1479,7 @@ qaBuild('s2','s2-rows', [
   {q:'What are the advantages of non-cash incentives for employees?', ans:['lasting reminder','achievement','boast','higher perceived value','recognition','benefit the whole family']},
   {q:'What are the disadvantages of cash rewards?', ans:['disappears','pay bills',"can't remember",'guilty']},
   {q:'Do you think incentive schemes are better than cash rewards? Why or why not?', ans:['yes','no','depends']}
-], 's2-result');
+], 's2-result', true);
 function checkS2(){ qaCheck('s2'); }
 function resetS2(){ qaReset('s2','s2-rows'); }
 
