@@ -1,0 +1,16 @@
+# macOS / system junk
+.DS_Store
+.fuse_hidden*
+*.bak
+*.bak2
+*.lock.bak
+
+# Backup copies of lessons
+*backup*
+*BACKUP*
+
+# Source textbooks, audio and reading files: kept locally for building lessons, NOT published
+BRAD. Business Result 2ed Advanced 2018/
+BRUP. Business Result 2ed Upper-Int 2018/
+AEF Lesson Standards.md
+*.pdf
